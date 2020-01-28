@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidacionMenu;
+use App\Models\Admin\Menu;
 use Illuminate\Http\Request;
 
-class PermisoController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($nombre)
+    public function index()
     {
-        return view('permiso',compact('nombre'));
+        //
     }
 
     /**
@@ -21,9 +24,9 @@ class PermisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function crear()
     {
-        return 'ESTE ES EL CRUD';
+        return view('admin.menu.crear');
     }
 
     /**
@@ -32,9 +35,10 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function guardar(ValidacionMenu $request)
     {
-        //
+       // dd($request->all());
+       Menu::create($request->all());
     }
 
     /**
