@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidarCampoUrl;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ValidacionMenu extends FormRequest
@@ -24,8 +25,8 @@ class ValidacionMenu extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:50',
-            'url' => 'required|max:50',
+            'nombre' => 'required|max:50|unique:menu,nombre'.$this->route('id'),
+            'url' => ['required','max:50', new ValidarCampoUrl],
             'icon' => 'nullable|max:50'
         ];
     }
@@ -34,7 +35,7 @@ class ValidacionMenu extends FormRequest
      * Get the error messages for the defined validation rules.
      *
      * @return array
-     */
+     
 
     public function messages()
     {
@@ -43,5 +44,6 @@ class ValidacionMenu extends FormRequest
             'url.required'  => 'El campo url es requerido',
         ];
     }
+    */
 
 }

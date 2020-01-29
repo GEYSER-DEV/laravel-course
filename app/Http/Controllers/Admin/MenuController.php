@@ -39,6 +39,7 @@ class MenuController extends Controller
     {
        // dd($request->all());
        Menu::create($request->all());
+       return redirect('admin/menu/crear')->with('mensaje','Menú creado con exito');
     }
 
     /**
@@ -72,7 +73,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect('admin/menu')->with('mensaje','Menú actualizado con exito');
     }
 
     /**
