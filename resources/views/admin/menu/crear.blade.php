@@ -4,6 +4,10 @@
     Sistemas Menus | Biblioteca SA CV
 @endsection
 
+@section('script')
+    <script src="{{asset("assets/pages/script/admin/menu/crear.js")}}" type="text/javascript"></script>
+@endsection
+
 @section('contenido')
     <div class="row">
         <div class="col-lg-12">
